@@ -26,6 +26,7 @@ private:
     
     std::vector<std::thread*> threadList;
 public:
+    void packetProcessor();
     void managerThread();       
     static threadMgmt *OverWatch(); 
     ~threadMgmt();

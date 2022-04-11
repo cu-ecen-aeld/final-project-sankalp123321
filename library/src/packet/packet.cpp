@@ -27,19 +27,20 @@ void packet::SendMessage(packet &pkt, uint32_t commThread)
 {
     buffer* m_bufferInst = buffer::GetBufferInst();
     uint8_t *buffptr = (uint8_t*)&pkt.datagram;
-    printf("SrcAddr[0x%04X] DestAddr[0x%04X] PayloadSize[%x] Data[ ", pkt.datagram.m_srcThreadID, pkt.datagram.m_destThreadID,\
-        pkt.datagram.m_payLoadSize);   
+    printf("Header[%04X] SrcAddr[0x%04X] DestAddr[0x%04X] PayloadSize[%x] Data[ ", pkt.datagram.m_header, pkt.datagram.m_srcThreadID, \
+    pkt.datagram.m_destThreadID, pkt.datagram.m_payLoadSize);   
     for (uint16_t i = 0; i < pkt.datagram.m_payLoadSize; i++)
     {
-        printf("0x%02X ", buffptr[i+5]);
+        printf("0x%02X ", buffptr[i + PACKET_HEADER_SIZE]);
     }
     printf("] cksum[%02X] \r\n", pkt.datagram.m_cksum);
-    m_bufferInst->AddToExternalBuffer(buffptr, 6 + pkt.datagram.m_payLoadSize);
+    m_bufferInst->AddToExternalBuffer(buffptr, PACKET_HEADER_SIZE + CKSUM_SIZE + pkt.datagram.m_payLoadSize);
 }
 
 packet::packet(uint32_t destThrdID, uint32_t srcThrdID) 
 {
     memset(&datagram, 0, sizeof (CommsPacket));
+    datagram.m_header = HEADER_ID;
     datagram.m_destThreadID = destThrdID;
     datagram.m_srcThreadID = srcThrdID;
 
@@ -73,4 +74,13 @@ void packet::Serialize(uint8_t* payload, uint8_t payloadQty)
 
     datagram.m_cksum ^= payloadQty;
     datagram.m_payload[payloadQty] = datagram.m_cksum;
+}
+
+void packet::setDestID(uint16_t destID)
+{
+    datagram.m_destThreadID = destID;
+}
+void packet::setSrcID(uint16_t srcID)
+{
+    datagram.m_srcThreadID = srcID;
 }

@@ -33,6 +33,8 @@ public:
     static buffer* GetBufferInst();
     uint8_t AddToExternalBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t AddToInternalBuffer(packet pack);
+    packet PopFromInternalBuffer();
+    uint8_t PopFromExternalBuffer(uint8_t* bytes, uint16_t numOfBytes);
     ~buffer();
 };
 #endif
