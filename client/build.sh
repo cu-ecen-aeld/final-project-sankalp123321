@@ -1,6 +1,5 @@
 #!/bin/bash
-
-if [ -d "./build" ]; then
+if [ -d "./build" ] then
     cd build
     make
 else

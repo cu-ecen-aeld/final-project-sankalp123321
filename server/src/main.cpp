@@ -3,6 +3,7 @@
 #include "router/routingTbl.h"
 #include "threadMgmt/threadMgmt.h"
 #include "threadServer/threadServer.h"
+#include "packet/packet.h"
 
 class example : public threadBase
 {
@@ -20,9 +21,14 @@ public:
 example::example(uint32_t threadID) : 
     threadBase(threadID)
 {
+    uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
     // Register the thread
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
+
+    packet sendData(56788, 45427);
+    sendData.Serialize(dataStram, sizeof(dataStram));
+    packet::SendMessage(sendData, 56574);
 }
 
 example::~example()

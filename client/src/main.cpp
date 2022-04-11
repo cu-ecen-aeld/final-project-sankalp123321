@@ -4,6 +4,7 @@
 #include "threadMgmt/threadMgmt.h"
 #include "threadServer/threadServer.h"
 #include "threadClient/threadClient.h"
+#include "packet/packet.h"
 
 class example : public threadBase
 {
@@ -21,9 +22,15 @@ public:
 example::example(uint32_t threadID) : 
     threadBase (threadID)
 {
+    uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
     // Register the thread
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
+
+    
+    packet sendData(56789, 45677);
+    sendData.Serialize(dataStram, sizeof(dataStram));
+    packet::SendMessage(sendData, 56575);
 }
 
 example::~example()
@@ -60,4 +67,4 @@ int main(int argv, const char *argc[])
     threadMgmt *tManager = threadMgmt::OverWatch(); 
     tManager->managerThread();
     return  0;
-}
+} 

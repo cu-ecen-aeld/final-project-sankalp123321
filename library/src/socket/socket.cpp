@@ -25,6 +25,9 @@
 #include <netinet/in.h>
 
 #include "socket.h"
+
+#define MAX_RETRIAL_TIMES 5
+
 #define ALLOWED_BACKLOG_CONNS 10
 #define IP_MAX_LEN 100
 #define MAX_BUFFER_SIZE 1024
@@ -135,29 +138,35 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID)
         syslog(LOG_ERR, "getaddrinfo error %s\n", gai_strerror(ret));
     }
 
-    std::cout << "Opening the socket.\n" << std::endl;
-
-    for (ptr = new_addr; ptr != NULL; ptr = ptr->ai_next)
+    for (uint8_t i = 0; i < MAX_RETRIAL_TIMES; i++)
     {
-        server_fd = socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
-        if (server_fd == -1)
-        {
-            syslog(LOG_ERR, "socket: %s", strerror(errno));
-            continue;
-        }
+        std::cout << "Trying to connect to the server." << std::endl;
 
-        int connRetVal = connect(server_fd, ptr->ai_addr, ptr->ai_addrlen);
-        if(connRetVal == -1)
+        for (ptr = new_addr; ptr != NULL; ptr = ptr->ai_next)
         {
-            close(server_fd);
-            continue;
+            server_fd = socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
+            if (server_fd == -1)
+            {
+                syslog(LOG_ERR, "socket: %s", strerror(errno));
+                continue;
+            }
+
+            int connRetVal = connect(server_fd, ptr->ai_addr, ptr->ai_addrlen);
+            if(connRetVal == -1)
+            {
+                close(server_fd);
+                continue;
+            }
+            i = MAX_RETRIAL_TIMES;
+            break;
         }
-        break;
     }
 
     if(ptr == NULL)
     {
         syslog(LOG_ERR, "socket: %s", strerror(errno));
+        printf("No connection available.\r\n");
+        exit(EXIT_FAILURE);
     }
 
     socklen_t add_size = sizeof(client_addr);

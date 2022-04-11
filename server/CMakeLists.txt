@@ -16,7 +16,7 @@ target_include_directories(server PRIVATE
     ${CMAKE_SOURCE_DIR}/includes/router
     ${CMAKE_SOURCE_DIR}/includes/threadMgmt
     ${CMAKE_SOURCE_DIR}/includes
-    ${CMAKE_SOURCE_DIR}/includes/buffer
+    ${CMAKE_SOURCE_DIR}/includes/packet
     ${CMAKE_SOURCE_DIR}/includes/threadBase
     ${CMAKE_SOURCE_DIR}/includes/threadClient
     ${CMAKE_SOURCE_DIR}/includes/threadServer

@@ -12,12 +12,24 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
+#include <iostream>
+#include <deque>
+#include <vector>
+#include "packet/packet.h"
+
 class buffer
 {
 private:
     /* data */
+    
+    static buffer* m_bufferInst;
+    std::deque<uint8_t> externalPacketQueue;
+    std::deque<packet> internalPacketQueue;
+    buffer();
 public:
-    buffer(/* args */);
+    static buffer* GetBufferInst();
+    uint8_t AddToExternalBuffer(uint8_t* bytes, uint16_t numOfBytes);
+    uint8_t AddToInternalBuffer(packet pack);
     ~buffer();
 };
 #endif
