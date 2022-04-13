@@ -10,8 +10,10 @@
  */
 
 #include <cstring>
+#include "threadBase/threadBase.h"
 #include "packet/packet.h"
 #include "buffer/buffer.h"
+#include "router/routingTbl.h"
 
 void packet::SendMessage(packet &pkt)
 {
@@ -25,7 +27,7 @@ void packet::SendMessage(packet &pkt)
 
 void packet::SendMessage(packet &pkt, uint32_t commThread)
 {
-    buffer* m_bufferInst = buffer::GetBufferInst();
+    routingTbl* m_routerInst =  routingTbl::GetRoutingTableInst();
     uint8_t *buffptr = (uint8_t*)&pkt.datagram;
     printf("Header[%04X] SrcAddr[0x%04X] DestAddr[0x%04X] PayloadSize[%x] Data[ ", pkt.datagram.m_header, pkt.datagram.m_srcThreadID, \
     pkt.datagram.m_destThreadID, pkt.datagram.m_payLoadSize);   
@@ -34,7 +36,16 @@ void packet::SendMessage(packet &pkt, uint32_t commThread)
         printf("0x%02X ", buffptr[i + PACKET_HEADER_SIZE]);
     }
     printf("] cksum[%02X] \r\n", pkt.datagram.m_cksum);
-    m_bufferInst->AddToExternalBuffer(buffptr, PACKET_HEADER_SIZE + CKSUM_SIZE + pkt.datagram.m_payLoadSize);
+
+    threadBase* baseThreadPtr = m_routerInst->GetThreadInstanceFromID(commThread);
+    if(baseThreadPtr == nullptr)
+    {
+        printf("No Registered thread 0x%X\n", commThread);
+    }
+    else
+    {
+        baseThreadPtr->AddToTxBuffer(buffptr, PACKET_HEADER_SIZE + CKSUM_SIZE + pkt.datagram.m_payLoadSize);
+    }
 }
 
 packet::packet(uint32_t destThrdID, uint32_t srcThrdID) 

@@ -23,7 +23,7 @@
 #include <sys/types.h> 
 #include <sys/socket.h>
 #include <netinet/in.h>
-
+#include <mutex>
 #include "socket.h"
 
 #define MAX_RETRIAL_TIMES 5
@@ -39,7 +39,7 @@ void *get_in_addr(struct sockaddr *sa) {
 }
 
 tcpServer::tcpServer(std::string ipAddr, std::string socketID):
-    server_fd(-1)
+    server_fd(-1), clientFd(-1)
 {
     openlog("icl-lib", LOG_CONS | LOG_PERROR | LOG_PID, LOG_USER);
 
@@ -100,8 +100,8 @@ tcpServer::tcpServer(std::string ipAddr, std::string socketID):
     socklen_t add_size = sizeof(client_addr);
     struct sockaddr *sck_addr = (struct sockaddr *)&client_addr;
 
-    int new_fd = accept(server_fd, sck_addr, &add_size);
-    if (new_fd < 0)
+    clientFd = accept(server_fd, sck_addr, &add_size);
+    if (clientFd < 0)
     {
         syslog(LOG_ERR, "accept: %s", strerror(errno));
         // return EXIT_FAILURE;
@@ -116,10 +116,133 @@ tcpServer::tcpServer(std::string ipAddr, std::string socketID):
     }
 
     syslog(LOG_INFO, "Accepted connection from %s\n", str_ip);
+    SocketSendThread = new std::thread(sendThread, this);
+    SocketRecvThread = new std::thread(recvThread, this);
 }
 
 tcpServer::~tcpServer()
 {
+}
+
+uint8_t tcpServer::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    std::lock_guard<std::mutex> lock (mutex);
+    printf("Rx Data: ");
+    for (uint16_t i = 0; i < numOfBytes; i++)
+    {
+        printf("0x%02X ", bytes[i]);
+        externalRxPacketQueue.push_front(bytes[i]);
+    }
+    printf("\r\n");
+    return 0;
+}
+
+uint8_t tcpServer::PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    int i = 0;
+    std::lock_guard<std::mutex> lock (mutex);
+    while (!externalRxPacketQueue.empty())
+    {
+        if (i == numOfBytes)
+        {
+            break;
+        }
+        // printf("0x%02X ", bytes[i]);
+        bytes[i] = externalRxPacketQueue.back();
+        externalRxPacketQueue.pop_back();
+        i++;
+    }
+    // printf("\r\n");
+    return i;
+}
+
+uint8_t tcpServer::AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    std::lock_guard<std::mutex> lock (mutex);
+    for (uint16_t i = 0; i < numOfBytes; i++)
+    {
+        // printf("0x%02X ", bytes[i]);
+        externalTxPacketQueue.push_front(bytes[i]);
+    }
+    // printf("\r\n");
+    return 0;
+}
+uint8_t tcpServer::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    int i = 0;
+    std::lock_guard<std::mutex> lock (mutex);
+    while (!externalTxPacketQueue.empty())
+    {
+        if (i == numOfBytes)
+        {
+            break;
+        }
+        
+        bytes[i] = externalTxPacketQueue.back();
+        externalTxPacketQueue.pop_back();
+        // printf("0x%02X ", bytes[i]);
+        i++;
+    }
+    // printf("\r\n");
+    return i;
+}
+
+void tcpServer::sendThread(tcpServer* inst)
+{
+    uint8_t buffer[256];
+    printf("Running thread sendThread.\n");
+    while (1)
+    {
+        uint16_t numOfBytesRead = inst->PopFromExternalTxBuffer(buffer, sizeof(buffer));
+        if(!numOfBytesRead)
+        {
+            continue;
+        }
+
+        printf("Number of Bytes to send [%d].\n", numOfBytesRead);
+        
+        if(inst->clientFd == -1)
+        {
+            continue;
+        }
+
+        int retVal = 0;
+        while(retVal = send(inst->clientFd, buffer, numOfBytesRead, 0))
+        {
+            if(retVal == -1)
+            {
+                // error
+            }
+            if(retVal == numOfBytesRead)
+            {
+                printf("Successfully sent out data. %dbytes.\n", retVal);
+                break;
+            }
+        }
+    }
+}
+void tcpServer::recvThread(tcpServer* inst)
+{
+    uint8_t buffer[256];
+    printf("Running thread recvThread.\n");
+    while (1)
+    {
+        int ret_val = recv(inst->clientFd, buffer, sizeof(buffer), 0);
+        // printf("ret status %d\n",ret_val);
+        if(ret_val == -1)
+        {
+            // perror
+        }
+        if (!ret_val)
+        {
+            // No more data to recv
+            continue;
+        }
+        if(ret_val > 0)
+        {
+            inst->AddToExternalRxBuffer(buffer, ret_val);
+        }
+    }
 }
 
 tcpClient::tcpClient(std::string ipAddr, std::string socketID)
@@ -181,8 +304,131 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID)
     }
     std::cout << "Connecting to : " << str_ip << std::endl;
     freeaddrinfo(new_addr);
+    SocketSendThread = new std::thread(sendThread, this);
+    SocketRecvThread = new std::thread(recvThread, this);
 }
 tcpClient::~tcpClient()
 {
 
+}
+
+uint8_t tcpClient::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    std::lock_guard<std::mutex> lock (mutex);
+    printf("Rx Data: ");
+    for (uint16_t i = 0; i < numOfBytes; i++)
+    {
+        printf("0x%02X ", bytes[i]);
+        externalRxPacketQueue.push_front(bytes[i]);
+    }
+    printf("\r\n");
+    return 0;
+}
+
+uint8_t tcpClient::PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    int i = 0;
+    std::lock_guard<std::mutex> lock (mutex);
+    while (!externalRxPacketQueue.empty())
+    {
+        if (i == numOfBytes)
+        {
+            break;
+        }
+        // printf("0x%02X ", bytes[i]);
+        bytes[i] = externalRxPacketQueue.back();
+        externalRxPacketQueue.pop_back();
+        i++;
+    }
+    // printf("\r\n");
+    return i;
+}
+
+uint8_t tcpClient::AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    std::lock_guard<std::mutex> lock (mutex);
+    for (uint16_t i = 0; i < numOfBytes; i++)
+    {
+        // printf("0x%02X ", bytes[i]);
+        externalTxPacketQueue.push_front(bytes[i]);
+    }
+    // printf("\r\n");
+    return 0;
+}
+uint8_t tcpClient::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+    int i = 0;
+    std::lock_guard<std::mutex> lock (mutex);
+    while (!externalTxPacketQueue.empty())
+    {
+        if (i == numOfBytes)
+        {
+            break;
+        }
+        
+        bytes[i] = externalTxPacketQueue.back();
+        externalTxPacketQueue.pop_back();
+        // printf("0x%02X ", bytes[i]);
+        i++;
+    }
+    // printf("\r\n");
+    return i;
+}
+
+void tcpClient::sendThread(tcpClient* inst)
+{
+    uint8_t buffer[256];
+    printf("Running thread sendThread.\n");
+    while (1)
+    {
+        uint16_t numOfBytesRead = inst->PopFromExternalTxBuffer(buffer, sizeof(buffer));
+        if(!numOfBytesRead)
+        {
+            continue;
+        }
+
+        printf("Number of Bytes to send [%d].\n", numOfBytesRead);
+        
+        if(inst->server_fd == -1)
+        {
+            continue;
+        }
+
+        int retVal = 0;
+        while(retVal = send(inst->server_fd, buffer, numOfBytesRead, 0))
+        {
+            if(retVal == -1)
+            {
+                // error
+            }
+            if(retVal == numOfBytesRead)
+            {
+                printf("Successfully sent out data. %dbytes.\n", retVal);
+                break;
+            }
+        }
+    }
+}
+void tcpClient::recvThread(tcpClient* inst)
+{
+    uint8_t buffer[256];
+    printf("Running thread recvThread.\n");
+    while (1)
+    {
+        int ret_val = recv(inst->server_fd, buffer, sizeof(buffer), 0);
+        // printf("ret status %d\n",ret_val);
+        if(ret_val == -1)
+        {
+            // perror
+        }
+        if (!ret_val)
+        {
+            // No more data to recv
+            continue;
+        }
+        if(ret_val > 0)
+        {
+            inst->AddToExternalRxBuffer(buffer, ret_val);
+        }
+    }
 }

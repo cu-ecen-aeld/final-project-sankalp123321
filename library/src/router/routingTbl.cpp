@@ -51,3 +51,8 @@ void routingTbl::printTable()
         std::cout << "Thread in table: " << i.first << std::endl;
     }
 }
+
+threadBase* routingTbl::GetThreadInstanceFromID(uint32_t threadID)
+{
+    return table.find(threadID)->second;
+}

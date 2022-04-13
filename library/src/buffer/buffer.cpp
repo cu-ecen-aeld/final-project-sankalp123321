@@ -32,44 +32,51 @@ buffer::~buffer()
 {
 }
 
-uint8_t buffer::AddToExternalBuffer(uint8_t* bytes, uint16_t numOfBytes)
+uint8_t buffer::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
 {
     std::lock_guard<std::mutex> lock (mutex);
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
         printf("0x%02X ", bytes[i]);
-        externalPacketQueue.push_front(bytes[i]);
+        externalRxPacketQueue.push_front(bytes[i]);
     }
     printf("\r\n");
     return 0;
 }
 
-uint8_t buffer::AddToInternalBuffer(packet pack)
-{
-    std::lock_guard<std::mutex> lock (mutex);
-    internalPacketQueue.push_front(pack);
-    return 0;
-}
-
-uint8_t buffer::PopFromExternalBuffer(uint8_t* bytes, uint16_t numOfBytes)
+uint8_t buffer::PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
 {
     int i = 0;
     std::lock_guard<std::mutex> lock (mutex);
-    while (!externalPacketQueue.empty())
+    while (!externalRxPacketQueue.empty())
     {
         if (i == numOfBytes)
         {
             break;
         }
         // printf("0x%02X ", bytes[i]);
-        bytes[i] = externalPacketQueue.back();
-        externalPacketQueue.pop_back();
+        bytes[i] = externalRxPacketQueue.back();
+        externalRxPacketQueue.pop_back();
         i++;
     }
     // printf("\r\n");
     return i;
 }
 
+uint8_t buffer::AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+
+}
+uint8_t buffer::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+{
+
+}
+uint8_t buffer::AddToInternalBuffer(packet pack)
+{
+    std::lock_guard<std::mutex> lock (mutex);
+    internalPacketQueue.push_front(pack);
+    return 0;
+}
 packet buffer::PopFromInternalBuffer()
 {
     std::lock_guard<std::mutex> lock (mutex);

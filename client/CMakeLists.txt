@@ -2,12 +2,13 @@ cmake_minimum_required(VERSION 3.10.2)
 project(client)
 
 set(CMAKE_CXX_STANDARD 17)
-
+add_compile_options(-g)
 add_executable(client 
     ${CMAKE_SOURCE_DIR}/src/main.cpp
 )
 
 target_link_libraries(client
+    -pthread
     ${CMAKE_SOURCE_DIR}/libicl.a
 )
 

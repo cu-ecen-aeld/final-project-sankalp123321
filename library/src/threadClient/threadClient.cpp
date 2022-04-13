@@ -13,7 +13,7 @@
 #include "router/routingTbl.h"
 
 threadClient::threadClient(uint32_t threadID, std::string ipAddr, std::string socketID):
-    threadBase(threadID), tcpClient(ipAddr, socketID)
+    m_ThreadID(threadID), threadBase(threadID), tcpClient(ipAddr, socketID)
 {
     // Register the thread
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
@@ -22,4 +22,23 @@ threadClient::threadClient(uint32_t threadID, std::string ipAddr, std::string so
 
 threadClient::~threadClient()
 {
+}
+
+void threadClient::RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes)
+{
+
+}
+void threadClient::PeriodicFunction()
+{
+
+}
+void threadClient::Notification(uint8_t notifId)
+{
+
+}
+
+void threadClient::AddToTxBuffer(uint8_t* data, uint16_t numOfBytes)
+{
+    printf("Thread ID: 0x%X\n", m_ThreadID);
+    tcpClient::AddToExternalTxBuffer(data, numOfBytes);
 }

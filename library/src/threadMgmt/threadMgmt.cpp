@@ -9,7 +9,8 @@
  * 
  */
 
-#include <threadMgmt.h>
+#include <thread>
+#include "threadMgmt/threadMgmt.h"
 #include "buffer/buffer.h"
 #include "packet/packet.h"
 
@@ -46,8 +47,9 @@ void threadMgmt::packetProcessor()
     uint8_t buffer[TOTAL_PACKET_SIZE_MAX];
     while (1)
     {
+        
         // signal wake up
-        uint16_t actualBytesRead = m_bufferInst->PopFromExternalBuffer(buffer, TOTAL_PACKET_SIZE_MAX);
+        uint16_t actualBytesRead = m_bufferInst->PopFromExternalRxBuffer(buffer, TOTAL_PACKET_SIZE_MAX);
 
         while (cntr <= actualBytesRead)
         {
@@ -130,10 +132,22 @@ void threadMgmt::packetProcessor()
     }
 }
 
+void threadMgmt::messageRouter()
+{
+    buffer* m_bufferInst = buffer::GetBufferInst();
+    uint8_t buffer[TOTAL_PACKET_SIZE_MAX];
+    while (1)
+    {
+        uint16_t actualBytesRead = m_bufferInst->PopFromExternalTxBuffer(buffer, TOTAL_PACKET_SIZE_MAX);
+    }
+}
 
 void threadMgmt::managerThread()
 {
-    packetProcessor();
+    std::thread packetProcessorThread(packetProcessor);
+    std::thread messageRoutingThread(messageRouter);
+    packetProcessorThread.join();
+    messageRoutingThread.join();
 }
 
 threadMgmt *threadMgmt::OverWatch()

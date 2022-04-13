@@ -30,7 +30,7 @@ example::example(uint32_t threadID) :
     
     packet sendData(56789, 45677);
     sendData.Serialize(dataStram, sizeof(dataStram));
-    packet::SendMessage(sendData, 56575);
+    packet::SendMessage(sendData, 56776);
 }
 
 example::~example()
@@ -61,7 +61,7 @@ void *example::ThreadFunc(void *args)
 int main(int argv, const char *argc[])
 {
     std::cout << "Hello Client." << std::endl;
-    // threadClient tClient(56776, "127.0.0.1", "3644");
+    threadClient tClient(56776, "127.0.0.1", "3644");
     example ex(34567);
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 

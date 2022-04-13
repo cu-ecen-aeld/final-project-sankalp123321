@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10.2)
 project(icl)
 
 set(CMAKE_CXX_STANDARD 17)
-
+add_compile_options(-g)
 add_library(icl STATIC
     ${CMAKE_SOURCE_DIR}/src/main.cpp
     ${CMAKE_SOURCE_DIR}/src/logger/logger.cpp

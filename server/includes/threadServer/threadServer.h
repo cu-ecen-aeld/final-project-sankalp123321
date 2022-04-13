@@ -12,18 +12,19 @@
 #pragma once
 
 #include <string>
-
+#include <deque>
 #include "threadServer.h"
 #include "threadBase/threadBase.h"
 #include "socket/socket.h"
 
-class threadServer : public threadBase, tcpServer
+class threadServer : public threadBase, public tcpServer
 {
 private:
 public:
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes);
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
+    virtual void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes);
     threadServer(uint32_t threadID, std::string ipAddr, std::string socketID);
     virtual ~threadServer();
 };

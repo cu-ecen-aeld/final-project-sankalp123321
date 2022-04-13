@@ -30,5 +30,6 @@ public:
     static routingTbl* GetRoutingTableInst();
     void printTable();
     void registerThread(uint32_t threadID, threadBase* thread);
+    threadBase* GetThreadInstanceFromID(uint32_t threadID);
     ~routingTbl();
 };

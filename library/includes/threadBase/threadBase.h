@@ -21,6 +21,7 @@ public:
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes);
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
+    virtual void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes);
     threadBase(uint32_t threadID);
     ~threadBase();
 };

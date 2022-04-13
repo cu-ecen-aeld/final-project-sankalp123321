@@ -26,9 +26,9 @@ example::example(uint32_t threadID) :
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
 
-    packet sendData(56788, 45427);
-    sendData.Serialize(dataStram, sizeof(dataStram));
-    packet::SendMessage(sendData, 56574);
+    // packet sendData(56788, 45427);
+    // sendData.Serialize(dataStram, sizeof(dataStram));
+    // packet::SendMessage(sendData, 56790);
 }
 
 example::~example()

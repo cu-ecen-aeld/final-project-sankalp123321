@@ -24,17 +24,20 @@ private:
     /* data */
     
     static buffer* m_bufferInst;
-    std::deque<uint8_t> externalPacketQueue;
+    std::deque<uint8_t> externalRxPacketQueue;
+    std::deque<uint8_t> externalTxPacketQueue;
     std::deque<packet> internalPacketQueue;
     static std::mutex _mutex_singleton;
     std::mutex mutex;
     buffer();
 public:
     static buffer* GetBufferInst();
-    uint8_t AddToExternalBuffer(uint8_t* bytes, uint16_t numOfBytes);
+    uint8_t AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes);
+    uint8_t PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes);
+    uint8_t AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes);
+    uint8_t PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t AddToInternalBuffer(packet pack);
     packet PopFromInternalBuffer();
-    uint8_t PopFromExternalBuffer(uint8_t* bytes, uint16_t numOfBytes);
     ~buffer();
 };
 #endif
