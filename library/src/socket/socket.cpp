@@ -24,6 +24,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <mutex>
+#include "buffer/buffer.h"
 #include "socket.h"
 
 #define MAX_RETRIAL_TIMES 5
@@ -127,13 +128,13 @@ tcpServer::~tcpServer()
 uint8_t tcpServer::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
 {
     std::lock_guard<std::mutex> lock (mutex);
-    printf("Rx Data: ");
+    // printf("Rx Data: ");
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
-        printf("0x%02X ", bytes[i]);
+        // printf("0x%02X ", bytes[i]);
         externalRxPacketQueue.push_front(bytes[i]);
     }
-    printf("\r\n");
+    // printf("\r\n");
     return 0;
 }
 
@@ -223,11 +224,11 @@ void tcpServer::sendThread(tcpServer* inst)
 }
 void tcpServer::recvThread(tcpServer* inst)
 {
-    uint8_t buffer[256];
+    uint8_t bufferBytes[256];
     printf("Running thread recvThread.\n");
     while (1)
     {
-        int ret_val = recv(inst->clientFd, buffer, sizeof(buffer), 0);
+        int ret_val = recv(inst->clientFd, bufferBytes, sizeof(bufferBytes), 0);
         // printf("ret status %d\n",ret_val);
         if(ret_val == -1)
         {
@@ -240,7 +241,7 @@ void tcpServer::recvThread(tcpServer* inst)
         }
         if(ret_val > 0)
         {
-            inst->AddToExternalRxBuffer(buffer, ret_val);
+            inst->AddToExternalRxBuffer(bufferBytes, ret_val);
         }
     }
 }
@@ -315,13 +316,13 @@ tcpClient::~tcpClient()
 uint8_t tcpClient::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
 {
     std::lock_guard<std::mutex> lock (mutex);
-    printf("Rx Data: ");
+    // printf("Rx Data: ");
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
-        printf("0x%02X ", bytes[i]);
+        // printf("0x%02X ", bytes[i]);
         externalRxPacketQueue.push_front(bytes[i]);
     }
-    printf("\r\n");
+    // printf("\r\n");
     return 0;
 }
 
@@ -411,11 +412,11 @@ void tcpClient::sendThread(tcpClient* inst)
 }
 void tcpClient::recvThread(tcpClient* inst)
 {
-    uint8_t buffer[256];
+    uint8_t bufferBytes[256];
     printf("Running thread recvThread.\n");
     while (1)
     {
-        int ret_val = recv(inst->server_fd, buffer, sizeof(buffer), 0);
+        int ret_val = recv(inst->server_fd, bufferBytes, sizeof(bufferBytes), 0);
         // printf("ret status %d\n",ret_val);
         if(ret_val == -1)
         {
@@ -428,7 +429,7 @@ void tcpClient::recvThread(tcpClient* inst)
         }
         if(ret_val > 0)
         {
-            inst->AddToExternalRxBuffer(buffer, ret_val);
+            inst->AddToExternalRxBuffer(bufferBytes, ret_val);
         }
     }
 }

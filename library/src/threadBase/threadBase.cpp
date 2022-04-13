@@ -24,3 +24,4 @@ void threadBase::RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes){}
 void threadBase::PeriodicFunction(){}
 void threadBase::Notification(uint8_t notifId){}
 void threadBase::AddToTxBuffer(uint8_t* data, uint16_t numOfBytes){}
+uint16_t threadBase::PopRxBuffer(uint8_t* data, uint16_t numOfBytes){}

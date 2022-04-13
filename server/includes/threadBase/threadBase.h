@@ -22,6 +22,7 @@ public:
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
     virtual void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes);
+    virtual uint16_t PopRxBuffer(uint8_t* data, uint16_t numOfBytes);
     threadBase(uint32_t threadID);
     ~threadBase();
 };

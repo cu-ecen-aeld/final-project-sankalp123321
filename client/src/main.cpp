@@ -15,6 +15,8 @@ public:
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
     void *ThreadFunc(void *args);
+    void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes){}
+    uint16_t PopRxBuffer(uint8_t* data, uint16_t numOfBytes){}
     example(uint32_t threadID);
     ~example();
 };
@@ -65,6 +67,6 @@ int main(int argv, const char *argc[])
     example ex(34567);
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 
-    tManager->packetProcessor();
+    tManager->managerThread();
     return  0;
 } 

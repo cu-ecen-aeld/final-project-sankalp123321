@@ -14,6 +14,8 @@ public:
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
     void *ThreadFunc(void *args);
+    void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes){}
+    uint16_t PopRxBuffer(uint8_t* data, uint16_t numOfBytes){}
     example(uint32_t threadID);
     ~example();
 };
@@ -26,9 +28,12 @@ example::example(uint32_t threadID) :
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
 
-    // packet sendData(56788, 45427);
-    // sendData.Serialize(dataStram, sizeof(dataStram));
-    // packet::SendMessage(sendData, 56790);
+    for (size_t i = 0; i < 10; i++)
+    {
+        packet sendData(56788, 45427);
+        sendData.Serialize(dataStram, sizeof(dataStram));
+        packet::SendMessage(sendData, 56775);
+    }
 }
 
 example::~example()

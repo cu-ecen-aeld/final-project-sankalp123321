@@ -1,3 +1,0 @@
-/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/client/build/CMakeFiles/rebuild_cache.dir
-/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/client/build/CMakeFiles/client.dir
-/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/client/build/CMakeFiles/edit_cache.dir
