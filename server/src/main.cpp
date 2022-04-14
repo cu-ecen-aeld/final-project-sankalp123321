@@ -10,14 +10,13 @@ class example : public threadBase
 private:
     /* data */
 public:
-    virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes);
+    virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes) override;
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
-    void *ThreadFunc(void *args);
-    void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes){}
-    uint16_t PopRxBuffer(uint8_t* data, uint16_t numOfBytes){}
+    virtual void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes){}
+    virtual uint16_t PopRxBuffer(uint8_t* data, uint16_t numOfBytes){}
     example(uint32_t threadID);
-    ~example();
+    virtual ~example();
 };
 
 example::example(uint32_t threadID) : 
@@ -28,9 +27,9 @@ example::example(uint32_t threadID) :
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
 
-    for (size_t i = 0; i < 10; i++)
+    for (size_t i = 0; i < 1; i++)
     {
-        packet sendData(56788, 45427);
+        packet sendData(34567, 45427);
         sendData.Serialize(dataStram, sizeof(dataStram));
         packet::SendMessage(sendData, 56775);
     }
@@ -42,7 +41,12 @@ example::~example()
 
 void example::RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes)
 {
-
+    printf("RecvMessageAsync called \n");
+    for (uint16_t i = 0; i < numOfBytes; i++)
+    {
+        printf("%02X ", buffer[i]);
+    }
+    printf("\r\n");
 }
 
 void example::PeriodicFunction()
@@ -55,17 +59,12 @@ void example::Notification(uint8_t notifId)
 
 }
 
-void *example::ThreadFunc(void *args)
-{
-
-}
-
-
 int main(int argv, const char *argc[])
 {
     std::cout << "Hello Server." << std::endl;
-    threadServer tServer(56775, "127.0.0.1", "3644");
     example ex(34567);
+    threadServer tServer(56775, "127.0.0.1", "3644");
+    
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 
     tManager->managerThread();

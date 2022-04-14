@@ -23,7 +23,7 @@ private:
     threadMgmt(/* args */);
     static threadMgmt *m_threadMgmtInst;
     routingTbl* m_rTbl;
-    
+    std::thread* messageRoutingThread;
     std::vector<std::thread*> threadList;
 public:
     static void messageRouter();
