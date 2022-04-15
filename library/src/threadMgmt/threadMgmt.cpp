@@ -24,22 +24,39 @@ threadMgmt::threadMgmt() :
 
 threadMgmt::~threadMgmt()
 {
+    messageRoutingThread->join();
+    delete messageRoutingThread;
 }
 
 void threadMgmt::messageRouter()
 {
     buffer* m_bufferInst = buffer::GetBufferInst();
-    uint8_t buffer[TOTAL_PACKET_SIZE_MAX];
+    routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     while (1)
     {
-        uint16_t actualBytesRead = m_bufferInst->PopFromExternalTxBuffer(buffer, TOTAL_PACKET_SIZE_MAX);
+        packet classToBeCalled;
+        uint8_t retVal = m_bufferInst->PopFromInternalBuffer(&classToBeCalled);
+        if(!retVal)
+        {
+            continue;
+        }
+         
+        threadBase* tBase = rTbl->GetThreadInstanceFromID(classToBeCalled.datagram.m_destThreadID);
+        if(tBase != nullptr)
+        {
+            printf("Calling thread with ID: %x, ptr: %p \n", classToBeCalled.datagram.m_destThreadID, tBase);
+            tBase->RecvMessageAsync(classToBeCalled.datagram.m_payload, classToBeCalled.datagram.m_payLoadSize);
+        }
+        else
+        {
+            printf("No thread found with ID: %x\n", classToBeCalled.datagram.m_destThreadID);
+        }
     }
 }
 
 void threadMgmt::managerThread()
 {
-    std::thread messageRoutingThread(messageRouter);
-    messageRoutingThread.join();
+    messageRoutingThread = new std::thread(messageRouter);
 }
 
 threadMgmt *threadMgmt::OverWatch()

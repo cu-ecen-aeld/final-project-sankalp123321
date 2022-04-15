@@ -1,5 +1,8 @@
 #!/bin/bash
-if [ -d "./build" ] then
+export CC=/usr/bin/cc
+export CXX=/usr/bin/c++
+
+if [ -d "./build" ]; then
     cd build
     make
 else
@@ -7,4 +10,5 @@ else
     cd build
     cmake ../
     make
+    cd ..
 fi

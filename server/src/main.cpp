@@ -22,16 +22,13 @@ public:
 example::example(uint32_t threadID) : 
     threadBase(threadID)
 {
-    uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
     // Register the thread
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
 
     for (size_t i = 0; i < 1; i++)
     {
-        packet sendData(34567, 45427);
-        sendData.Serialize(dataStram, sizeof(dataStram));
-        packet::SendMessage(sendData, 56775);
+        
     }
 }
 
@@ -63,7 +60,12 @@ int main(int argv, const char *argc[])
 {
     std::cout << "Hello Server." << std::endl;
     example ex(34567);
-    threadServer tServer(56775, "127.0.0.1", "3644");
+    threadServer tServer(56775, argc[1], argc[2]);
+
+    uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
+    packet sendData(34567, 45427);
+    sendData.Serialize(dataStram, sizeof(dataStram));
+    packet::SendMessage(sendData, 56775);
     
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 

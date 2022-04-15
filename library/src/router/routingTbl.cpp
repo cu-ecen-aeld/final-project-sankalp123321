@@ -39,7 +39,7 @@ std::map<uint32_t, threadBase*> routingTbl::routerTableInst()
 
 void routingTbl::registerThread(uint32_t threadID, threadBase* thread)
 {
-    std::cout << "New thread added: " << threadID << std::endl;
+    std::cout << "New thread added: " << threadID << " Address: " << thread << std::endl;
     table.emplace(threadID, thread);
     printTable();
 }

@@ -44,5 +44,6 @@ public:
     static void SendMessage(packet &pkt, uint32_t commdThread);
     void setDestID(uint16_t destID);
     void setSrcID(uint16_t srcID);
+    packet();
     ~packet();
 };

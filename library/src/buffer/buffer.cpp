@@ -77,10 +77,14 @@ uint8_t buffer::AddToInternalBuffer(packet pack)
     internalPacketQueue.push_front(pack);
     return 0;
 }
-packet buffer::PopFromInternalBuffer()
+uint8_t buffer::PopFromInternalBuffer(packet* rcvdPckt)
 {
     std::lock_guard<std::mutex> lock (mutex);
-    packet pack = internalPacketQueue.back();
+    if(internalPacketQueue.empty())
+    {
+        return 0;
+    }
+    *rcvdPckt = internalPacketQueue.back();
     internalPacketQueue.pop_back();
-    return pack;
+    return 1;
 }

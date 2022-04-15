@@ -37,7 +37,7 @@ public:
     uint8_t AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t AddToInternalBuffer(packet pack);
-    packet PopFromInternalBuffer();
+    uint8_t PopFromInternalBuffer(packet*);
     ~buffer();
 };
 #endif

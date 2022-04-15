@@ -37,6 +37,7 @@ void packet::SendMessage(packet &pkt, uint32_t commThread)
     }
     printf("] cksum[%02X] \r\n", pkt.datagram.m_cksum);
 
+    printf("SendMessage %p\n", m_routerInst->GetThreadInstanceFromID(commThread));
     threadBase* baseThreadPtr = m_routerInst->GetThreadInstanceFromID(commThread);
     if(baseThreadPtr == nullptr)
     {
@@ -64,6 +65,11 @@ packet::packet(uint32_t destThrdID, uint32_t srcThrdID)
         destThrdID = destThrdID >> 8;
     }
     printf("size: %ld\r\n", sizeof(CommsPacket));
+}
+
+packet::packet()
+{
+    
 }
 
 packet::~packet()
