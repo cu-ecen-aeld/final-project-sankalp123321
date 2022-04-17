@@ -23,8 +23,10 @@ routingTbl* routingTbl::GetRoutingTableInst()
     return m_RTblInst;
 }
 
-routingTbl::routingTbl(/* args */)
+routingTbl::routingTbl():
+    cpplogger(nullptr)
 {
+    cpplogger = CPPLogger::getLoggerInst();
 }
 
 routingTbl::~routingTbl()
@@ -39,7 +41,7 @@ std::map<uint32_t, threadBase*> routingTbl::routerTableInst()
 
 void routingTbl::registerThread(uint32_t threadID, threadBase* thread)
 {
-    std::cout << "New thread added: " << threadID << " Address: " << thread << std::endl;
+    logger_log(cpplogger, LEVEL_INFO, "New thread added: %d Address: %p\n", threadID, thread);
     table.emplace(threadID, thread);
     printTable();
 }
@@ -48,7 +50,7 @@ void routingTbl::printTable()
 {
     for(auto &i : table)
     {
-        std::cout << "Thread in table: " << i.first << std::endl;
+        logger_log(cpplogger, LEVEL_INFO, "Thread in table: %d Address: %p\n", i.first, i.second);
     }
 }
 

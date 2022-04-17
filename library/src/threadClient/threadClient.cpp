@@ -17,9 +17,9 @@
 #include "buffer/buffer.h"
 
 threadClient::threadClient(uint32_t threadID, std::string ipAddr, std::string socketID):
-    m_ThreadID(threadID), threadBase(threadID), tcpClient(ipAddr, socketID)
+    m_ThreadID(threadID), cpplogger(nullptr), threadBase(threadID), tcpClient(ipAddr, socketID)
 {
-    printf("threadClient [%p]", this);
+    cpplogger = CPPLogger::getLoggerInst();
     // Register the thread
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
@@ -70,7 +70,7 @@ void threadClient::packetProcessor(threadClient* inst)
                 {
                     uint32_t sync = (((uint32_t)bufferBytes[cntr ] << 24) | ((uint32_t)bufferBytes[cntr + 1] << 16) | \
                                 ((uint32_t)bufferBytes[cntr + 2] << 8) | ((uint32_t)bufferBytes[cntr + 3]));
-                    // printf("hdr: %08X\n", sync);
+                    // logger_log(inst->cpplogger, LEVEL_DEBUG, "hdr: %08X\n", sync);
                     if(sync == HEADER_ID_INV)
                     {
                         packetFinderState++;
@@ -121,17 +121,17 @@ void threadClient::packetProcessor(threadClient* inst)
                     foundPacket.datagram.m_cksum = bufferBytes[cntr++];
                     for (int i = 4; i < (0 + (PACKET_HEADER_SIZE + foundPacket.datagram.m_payLoadSize + CKSUM_SIZE)); i++)
                     {
-                        printf("%02X ", bufferBytes[i]);
+                        // logger_log(inst->cpplogger, LEVEL_DEBUG, "%02X ", bufferBytes[i]);
                         cksum ^= bufferBytes[i];
                     }
-                    printf("\n");
+                    logger_log(inst->cpplogger, LEVEL_DEBUG, "\n");
                     if(!cksum)
                     {
-                        printf("Correct checksum.\n");
+                        logger_log(inst->cpplogger, LEVEL_DEBUG, "Correct checksum.\n");
                     }
                     else
                     {
-                        printf("Invalid checksum: %02X.\n", cksum);
+                        logger_log(inst->cpplogger, LEVEL_DEBUG, "Invalid checksum: %02X.\n", cksum);
                     }
                     // cntr = 0;
                     buffInst->AddToInternalBuffer(foundPacket);
@@ -142,7 +142,7 @@ void threadClient::packetProcessor(threadClient* inst)
                 default:
                     break;
             }
-            // printf("Byte[0x%02X] stage[0x%02X] cntr[%d]\n", bufferBytes[cntr], packetFinderState, cntr);
+            // logger_log(inst->cpplogger, LEVEL_DEBUG, "Byte[0x%02X] stage[0x%02X] cntr[%d]\n", bufferBytes[cntr], packetFinderState, cntr);
         }
         cntr = 0;
     }
@@ -163,12 +163,12 @@ void threadClient::Notification(uint8_t notifId)
 
 void threadClient::AddToTxBuffer(uint8_t* data, uint16_t numOfBytes)
 {
-    // printf("AddToTxBuffer Thread ID: 0x%X\n", m_ThreadID);
+    // logger_log(cpplogger, LEVEL_DEBUG, "AddToTxBuffer Thread ID: 0x%X\n", m_ThreadID);
     tcpClient::AddToExternalTxBuffer(data, numOfBytes);
 }
 
 uint16_t threadClient::PopRxBuffer(uint8_t* data, uint16_t numOfBytes)
 {
-    // printf("PopRxBuffer Thread ID: 0x%X\n", m_ThreadID);
+    // logger_log(cpplogger, LEVEL_DEBUG, "PopRxBuffer Thread ID: 0x%X\n", m_ThreadID);
     return tcpClient::PopFromExternalRxBuffer(data, numOfBytes);
 }

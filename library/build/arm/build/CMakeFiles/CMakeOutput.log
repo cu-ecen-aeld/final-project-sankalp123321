@@ -1,0 +1,607 @@
+The system is: Linux - 4.4.0-19041-Microsoft - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d2340/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d2340.dir/build.make CMakeFiles/cmTC_d2340.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d2340.dir/testCCompiler.c.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTC_d2340.dir/testCCompiler.c.o   -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_d2340
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d2340.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc      CMakeFiles/cmTC_d2340.dir/testCCompiler.c.o  -o cmTC_d2340 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_27872/fast"
+/usr/bin/make -f CMakeFiles/cmTC_27872.dir/build.make CMakeFiles/cmTC_27872.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_27872
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27872.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc     -v CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o  -o cmTC_27872 
+Using built-in specs.
+COLLECT_GCC=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-6.5-2018.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --with-float=hard --with-fpu=vfpv3-d16 --with-mode=thumb --with-tune=cortex-a9 --with-arch=armv7-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/arm-linux-gnueabihf --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+Thread model: posix
+gcc version 6.5.0 (Linaro GCC 6.5-2018.12) 
+COMPILER_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/bin/
+LIBRARY_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_27872' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+ /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/collect2 -plugin /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/liblto_plugin.so -plugin-opt=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cclOVa52.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_27872 /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtbegin.o -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0 -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtend.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_27872' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_27872/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_27872.dir/build.make CMakeFiles/cmTC_27872.dir/build]
+  ignore line: [make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_27872]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27872.dir/link.txt --verbose=1]
+  ignore line: [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc     -v CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o  -o cmTC_27872 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper]
+  ignore line: [Target: arm-linux-gnueabihf]
+  ignore line: [Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-6.5-2018.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --with-float=hard --with-fpu=vfpv3-d16 --with-mode=thumb --with-tune=cortex-a9 --with-arch=armv7-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/arm-linux-gnueabihf --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.5.0 (Linaro GCC 6.5-2018.12) ]
+  ignore line: [COMPILER_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_27872' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
+  link line: [ /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/collect2 -plugin /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/liblto_plugin.so -plugin-opt=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cclOVa52.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_27872 /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtbegin.o -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0 -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtend.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o]
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cclOVa52.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_27872] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtbegin.o] ==> ignore
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib]
+    arg [CMakeFiles/cmTC_27872.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtend.o] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.5.0]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.5.0;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_57df7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_57df7.dir/build.make CMakeFiles/cmTC_57df7.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57df7.dir/feature_tests.c.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc   -std=c11 -o CMakeFiles/cmTC_57df7.dir/feature_tests.c.o   -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_57df7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57df7.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc      CMakeFiles/cmTC_57df7.dir/feature_tests.c.o  -o cmTC_57df7 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_82a52/fast"
+/usr/bin/make -f CMakeFiles/cmTC_82a52.dir/build.make CMakeFiles/cmTC_82a52.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_82a52.dir/feature_tests.c.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc   -std=c99 -o CMakeFiles/cmTC_82a52.dir/feature_tests.c.o   -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_82a52
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82a52.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc      CMakeFiles/cmTC_82a52.dir/feature_tests.c.o  -o cmTC_82a52 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1825a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1825a.dir/build.make CMakeFiles/cmTC_1825a.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1825a.dir/feature_tests.c.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc   -std=c90 -o CMakeFiles/cmTC_1825a.dir/feature_tests.c.o   -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_1825a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1825a.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc      CMakeFiles/cmTC_1825a.dir/feature_tests.c.o  -o cmTC_1825a 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d6c8b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d6c8b.dir/build.make CMakeFiles/cmTC_d6c8b.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d6c8b.dir/testCXXCompiler.cxx.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTC_d6c8b.dir/testCXXCompiler.cxx.o -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_d6c8b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6c8b.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++       CMakeFiles/cmTC_d6c8b.dir/testCXXCompiler.cxx.o  -o cmTC_d6c8b 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0cc75/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0cc75.dir/build.make CMakeFiles/cmTC_0cc75.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_0cc75
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0cc75.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++      -v CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0cc75 
+Using built-in specs.
+COLLECT_GCC=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
+COLLECT_LTO_WRAPPER=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-6.5-2018.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --with-float=hard --with-fpu=vfpv3-d16 --with-mode=thumb --with-tune=cortex-a9 --with-arch=armv7-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/arm-linux-gnueabihf --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+Thread model: posix
+gcc version 6.5.0 (Linaro GCC 6.5-2018.12) 
+COMPILER_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/bin/
+LIBRARY_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cc75' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+ /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/collect2 -plugin /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/liblto_plugin.so -plugin-opt=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc8oEzx.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_0cc75 /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtbegin.o -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0 -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtend.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cc75' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0cc75/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0cc75.dir/build.make CMakeFiles/cmTC_0cc75.dir/build]
+  ignore line: [make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_0cc75]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0cc75.dir/link.txt --verbose=1]
+  ignore line: [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++      -v CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0cc75 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper]
+  ignore line: [Target: arm-linux-gnueabihf]
+  ignore line: [Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-6.5-2018.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --with-float=hard --with-fpu=vfpv3-d16 --with-mode=thumb --with-tune=cortex-a9 --with-arch=armv7-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/arm-linux-gnueabihf --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.5.0 (Linaro GCC 6.5-2018.12) ]
+  ignore line: [COMPILER_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cc75' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
+  link line: [ /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/collect2 -plugin /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/liblto_plugin.so -plugin-opt=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc8oEzx.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_0cc75 /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtbegin.o -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0 -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtend.o /mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o]
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.5.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccc8oEzx.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0cc75] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtbegin.o] ==> ignore
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib]
+    arg [-L/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib]
+    arg [CMakeFiles/cmTC_0cc75.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/crtend.o] ==> ignore
+    arg [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.5.0]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.5.0/../../../../arm-linux-gnueabihf/lib] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib]
+  collapse library dir [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/6.5.0;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/lib/gcc;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/lib;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib;/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d0d3f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d0d3f.dir/build.make CMakeFiles/cmTC_d0d3f.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d0d3f.dir/feature_tests.cxx.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -std=c++1z -o CMakeFiles/cmTC_d0d3f.dir/feature_tests.cxx.o -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d0d3f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0d3f.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++       CMakeFiles/cmTC_d0d3f.dir/feature_tests.cxx.o  -o cmTC_d0d3f 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b19b4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b19b4.dir/build.make CMakeFiles/cmTC_b19b4.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b19b4.dir/feature_tests.cxx.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -std=c++14 -o CMakeFiles/cmTC_b19b4.dir/feature_tests.cxx.o -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_b19b4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b19b4.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++       CMakeFiles/cmTC_b19b4.dir/feature_tests.cxx.o  -o cmTC_b19b4 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_80486/fast"
+/usr/bin/make -f CMakeFiles/cmTC_80486.dir/build.make CMakeFiles/cmTC_80486.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_80486.dir/feature_tests.cxx.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -std=c++11 -o CMakeFiles/cmTC_80486.dir/feature_tests.cxx.o -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_80486
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_80486.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++       CMakeFiles/cmTC_80486.dir/feature_tests.cxx.o  -o cmTC_80486 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e20c8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e20c8.dir/build.make CMakeFiles/cmTC_e20c8.dir/build
+make[1]: Entering directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e20c8.dir/feature_tests.cxx.o
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -std=c++98 -o CMakeFiles/cmTC_e20c8.dir/feature_tests.cxx.o -c /mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e20c8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e20c8.dir/link.txt --verbose=1
+/mnt/d/CUBoulder/ESD/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++       CMakeFiles/cmTC_e20c8.dir/feature_tests.cxx.o  -o cmTC_e20c8 
+make[1]: Leaving directory '/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/library/build/arm/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

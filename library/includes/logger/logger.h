@@ -23,7 +23,7 @@ class CPPLogger
         static CPPLogger* getLoggerInst()
         {
             std::lock_guard<std::mutex> lock(mutex_);
-            if(cpplogger == NULL)
+            if(cpplogger == nullptr)
             {
                 cpplogger = new CPPLogger();
             }

@@ -13,6 +13,7 @@
 #include <string>
 #include "threadBase/threadBase.h"
 #include "socket/socket.h"
+#include "logger/logger.h"
 
 class threadClient : public threadBase, tcpClient
 {
@@ -21,6 +22,9 @@ private:
     static void packetProcessor(threadClient* inst);
     uint32_t m_ThreadID;
     std::thread* packetProcessorThread;
+    CPPLogger* cpplogger;
+protected:
+    
 public:
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes);
     virtual void PeriodicFunction();

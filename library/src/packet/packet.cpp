@@ -20,7 +20,6 @@ void packet::SendMessage(packet &pkt)
     buffer* m_bufferInst = buffer::GetBufferInst();
     if(m_bufferInst != nullptr)
     {
-        printf("it has memory\n");
         m_bufferInst->AddToInternalBuffer(pkt);
     }
 }
@@ -29,7 +28,8 @@ void packet::SendMessage(packet &pkt, uint32_t commThread)
 {
     routingTbl* m_routerInst =  routingTbl::GetRoutingTableInst();
     uint8_t *buffptr = (uint8_t*)&pkt.datagram;
-    printf("Header[%04X] SrcAddr[0x%04X] DestAddr[0x%04X] PayloadSize[%x] Data[ ", pkt.datagram.m_header, pkt.datagram.m_srcThreadID, \
+    CPPLogger* cpplog = CPPLogger::getLoggerInst();
+    logger_log(cpplog, LEVEL_INFO, "Header[%04X] SrcAddr[0x%04X] DestAddr[0x%04X] PayloadSize[%x] Data[ ", pkt.datagram.m_header, pkt.datagram.m_srcThreadID, \
     pkt.datagram.m_destThreadID, pkt.datagram.m_payLoadSize);   
     for (uint16_t i = 0; i < pkt.datagram.m_payLoadSize; i++)
     {
@@ -37,11 +37,11 @@ void packet::SendMessage(packet &pkt, uint32_t commThread)
     }
     printf("] cksum[%02X] \r\n", pkt.datagram.m_cksum);
 
-    printf("SendMessage %p\n", m_routerInst->GetThreadInstanceFromID(commThread));
+    logger_log(cpplog, LEVEL_INFO, "SendMessage %p\n", m_routerInst->GetThreadInstanceFromID(commThread));
     threadBase* baseThreadPtr = m_routerInst->GetThreadInstanceFromID(commThread);
     if(baseThreadPtr == nullptr)
     {
-        printf("No Registered thread 0x%X\n", commThread);
+        logger_log(cpplog, LEVEL_INFO, "No Registered thread 0x%X\n", commThread);
     }
     else
     {
@@ -64,12 +64,11 @@ packet::packet(uint32_t destThrdID, uint32_t srcThrdID)
         srcThrdID = srcThrdID >> 8;
         destThrdID = destThrdID >> 8;
     }
-    printf("size: %ld\r\n", sizeof(CommsPacket));
+    // logger_log(cpplogger, LEVEL_INFO, "size: %ld\r\n", sizeof(CommsPacket));
 }
 
 packet::packet()
 {
-    
 }
 
 packet::~packet()

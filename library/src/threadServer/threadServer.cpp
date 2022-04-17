@@ -16,8 +16,9 @@
 #include "buffer/buffer.h"
 
 threadServer::threadServer(uint32_t threadID, std::string ipAddr, std::string socketID):
-    m_ThreadID(threadID), threadBase(threadID), tcpServer(ipAddr, socketID)
+    m_ThreadID(threadID), cpplogger(nullptr), threadBase(threadID), tcpServer(ipAddr, socketID)
 {
+    cpplogger = CPPLogger::getLoggerInst();
     // Register the thread
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
@@ -117,17 +118,17 @@ void threadServer::packetProcessor(threadServer* inst)
                     foundPacket.datagram.m_cksum = bufferBytes[cntr++];
                     for (int i = 4; i < (0 + (PACKET_HEADER_SIZE + foundPacket.datagram.m_payLoadSize + CKSUM_SIZE)); i++)
                     {
-                        printf("%02X ", bufferBytes[i]);
+                        logger_log(inst->cpplogger, LEVEL_DEBUG, "%02X ", bufferBytes[i]);
                         cksum ^= bufferBytes[i];
                     }
-                    printf("\n");
+                    logger_log(inst->cpplogger, LEVEL_DEBUG, "\n");
                     if(!cksum)
                     {
-                        printf("Correct checksum.\n");
+                        logger_log(inst->cpplogger, LEVEL_DEBUG, "Correct checksum.\n");
                     }
                     else
                     {
-                        printf("Invalid checksum: %02X.\n", cksum);
+                        logger_log(inst->cpplogger, LEVEL_DEBUG, "Invalid checksum: %02X.\n", cksum);
                     }
                     packetFinderState = FIND_HDR;
                     break;
@@ -136,7 +137,7 @@ void threadServer::packetProcessor(threadServer* inst)
                 default:
                     break;
             }
-            // printf("Byte[0x%02X] stage[0x%02X] cntr[%d]\n", bufferBytes[cntr], packetFinderState, cntr);
+            // logger_log(inst->cpplogger, LEVEL_DEBUG, "Byte[0x%02X] stage[0x%02X] cntr[%d]\n", bufferBytes[cntr], packetFinderState, cntr);
         }
         cntr = 0;
     }

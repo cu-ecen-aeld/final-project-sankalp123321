@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/doo.dir/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/Examples/MultipleServerClient/doo/src/main.cpp.o  -o doo -pthread ../libicl.a 

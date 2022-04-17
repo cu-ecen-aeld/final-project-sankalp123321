@@ -16,6 +16,7 @@
 #include <vector>
 
 #include "router/routingTbl.h"
+#include "logger/logger.h"
 
 class threadMgmt
 {
@@ -26,6 +27,7 @@ private:
     std::thread* messageRoutingThread;
     std::vector<std::thread*> threadList;
 public:
+    CPPLogger* cpplogger;
     static void messageRouter();
     void managerThread();       
     static threadMgmt *OverWatch(); 

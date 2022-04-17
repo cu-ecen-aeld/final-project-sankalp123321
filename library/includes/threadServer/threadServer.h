@@ -16,6 +16,7 @@
 #include "threadServer.h"
 #include "threadBase/threadBase.h"
 #include "socket/socket.h"
+#include "logger/logger.h"
 
 class threadServer : public threadBase, public tcpServer
 {
@@ -23,6 +24,7 @@ private:
     static void packetProcessor(threadServer* inst);
     uint32_t m_ThreadID;
     std::thread* packetProcessorThread;
+    CPPLogger* cpplogger;
 public:
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes);
     virtual void PeriodicFunction();

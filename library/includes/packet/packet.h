@@ -12,6 +12,7 @@
 #pragma once
 
 #include <iostream>
+#include "logger/logger.h"
 
 #define HEADER_ID (0xAAC0FFEE)
 #define HEADER_ID_INV (0xEEFFC0AA)

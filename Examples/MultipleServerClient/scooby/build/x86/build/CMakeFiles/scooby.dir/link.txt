@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/scooby.dir/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/Examples/MultipleServerClient/scooby/src/main.cpp.o  -o scooby -pthread ../libicl.a 

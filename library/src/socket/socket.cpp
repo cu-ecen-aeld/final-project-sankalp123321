@@ -40,8 +40,9 @@ void *get_in_addr(struct sockaddr *sa) {
 }
 
 tcpServer::tcpServer(std::string ipAddr, std::string socketID):
-    server_fd(-1), clientFd(-1)
+    server_fd(-1), clientFd(-1), cpplogger(nullptr)
 {
+    cpplogger = CPPLogger::getLoggerInst();
     openlog("icl-lib", LOG_CONS | LOG_PERROR | LOG_PID, LOG_USER);
 
     struct addrinfo s_addr, *new_addr = nullptr;
@@ -59,7 +60,7 @@ tcpServer::tcpServer(std::string ipAddr, std::string socketID):
         syslog(LOG_ERR, "getaddrinfo error %s\n", gai_strerror(ret));
     }
 
-    std::cout << "Opening the socket.\n" << std::endl;
+    logger_log(cpplogger, LEVEL_DEBUG, "Opening the socket.\n");
 
     server_fd = socket(s_addr.ai_family, SOCK_STREAM, 0);
     if (server_fd < 0)
@@ -68,7 +69,7 @@ tcpServer::tcpServer(std::string ipAddr, std::string socketID):
         freeaddrinfo(new_addr);
     }
 
-    std::cout << "Binding the file descriptor[%d]." <<  server_fd << std::endl;
+    logger_log(cpplogger, LEVEL_DEBUG, "Binding the file descriptor[%d].\n", server_fd);
 
     struct addrinfo *tmp = nullptr;
     int bind_ret = 0, binded = 0;
@@ -90,7 +91,7 @@ tcpServer::tcpServer(std::string ipAddr, std::string socketID):
 
     freeaddrinfo(new_addr);
 
-    printf("Listening on the socket.\n");
+    logger_log(cpplogger, LEVEL_DEBUG, "Listening on the socket.\n");
 
     int listen_ret = listen(server_fd, ALLOWED_BACKLOG_CONNS);
     if (listen_ret < 0)
@@ -116,7 +117,7 @@ tcpServer::tcpServer(std::string ipAddr, std::string socketID):
         // return EXIT_FAILURE;
     }
 
-    syslog(LOG_INFO, "Accepted connection from %s\n", str_ip);
+    logger_log(cpplogger, LEVEL_INFO, "Accepted connection from %s\n", str_ip);
     SocketSendThread = new std::thread(sendThread, this);
     SocketRecvThread = new std::thread(recvThread, this);
 }
@@ -128,13 +129,13 @@ tcpServer::~tcpServer()
 uint8_t tcpServer::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
 {
     std::lock_guard<std::mutex> lock (mutex);
-    // printf("Rx Data: ");
+    // logger_log(cpplogger, LEVEL_DEBUG, "Rx Data: ");
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         externalRxPacketQueue.push_front(bytes[i]);
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return 0;
 }
 
@@ -148,12 +149,12 @@ uint8_t tcpServer::PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
         {
             break;
         }
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         bytes[i] = externalRxPacketQueue.back();
         externalRxPacketQueue.pop_back();
         i++;
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return i;
 }
 
@@ -162,10 +163,10 @@ uint8_t tcpServer::AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
     std::lock_guard<std::mutex> lock (mutex);
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         externalTxPacketQueue.push_front(bytes[i]);
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return 0;
 }
 uint8_t tcpServer::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
@@ -181,17 +182,17 @@ uint8_t tcpServer::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
         
         bytes[i] = externalTxPacketQueue.back();
         externalTxPacketQueue.pop_back();
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         i++;
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return i;
 }
 
 void tcpServer::sendThread(tcpServer* inst)
 {
     uint8_t buffer[256];
-    printf("Running thread sendThread.\n");
+    logger_log(inst->cpplogger, LEVEL_DEBUG, "Running thread sendThread.\n");
     while (1)
     {
         uint16_t numOfBytesRead = inst->PopFromExternalTxBuffer(buffer, sizeof(buffer));
@@ -200,7 +201,7 @@ void tcpServer::sendThread(tcpServer* inst)
             continue;
         }
 
-        printf("Number of Bytes to send [%d].\n", numOfBytesRead);
+        logger_log(inst->cpplogger, LEVEL_DEBUG, "Number of Bytes to send [%d].\n", numOfBytesRead);
         
         if(inst->clientFd == -1)
         {
@@ -216,7 +217,7 @@ void tcpServer::sendThread(tcpServer* inst)
             }
             if(retVal == numOfBytesRead)
             {
-                printf("Successfully sent out data. %dbytes.\n", retVal);
+                logger_log(inst->cpplogger, LEVEL_DEBUG, "Successfully sent out data. %dbytes.\n", retVal);
                 break;
             }
         }
@@ -225,11 +226,11 @@ void tcpServer::sendThread(tcpServer* inst)
 void tcpServer::recvThread(tcpServer* inst)
 {
     uint8_t bufferBytes[256];
-    printf("Running thread recvThread.\n");
+    logger_log(inst->cpplogger, LEVEL_DEBUG, "Running thread recvThread.\n");
     while (1)
     {
         int ret_val = recv(inst->clientFd, bufferBytes, sizeof(bufferBytes), 0);
-        // printf("ret status %d\n",ret_val);
+        // logger_log(inst->cpplogger, LEVEL_DEBUG, "ret status %d\n",ret_val);
         if(ret_val == -1)
         {
             // perror
@@ -246,8 +247,10 @@ void tcpServer::recvThread(tcpServer* inst)
     }
 }
 
-tcpClient::tcpClient(std::string ipAddr, std::string socketID)
+tcpClient::tcpClient(std::string ipAddr, std::string socketID):
+    server_fd(-1), cpplogger(nullptr)
 {
+    cpplogger = CPPLogger::getLoggerInst();
     struct addrinfo s_addr, *new_addr = nullptr, *ptr;
     struct sockaddr_storage client_addr;
 
@@ -264,7 +267,7 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID)
 
     for (uint8_t i = 0; i < MAX_RETRIAL_TIMES; i++)
     {
-        std::cout << "Trying to connect to the server." << std::endl;
+        logger_log(cpplogger, LEVEL_DEBUG, "Trying to connect to the server.\n");
 
         for (ptr = new_addr; ptr != NULL; ptr = ptr->ai_next)
         {
@@ -289,7 +292,7 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID)
     if(ptr == NULL)
     {
         syslog(LOG_ERR, "socket: %s", strerror(errno));
-        printf("No connection available.\r\n");
+        logger_log(cpplogger, LEVEL_DEBUG, "No connection available.\r\n");
         exit(EXIT_FAILURE);
     }
 
@@ -303,7 +306,7 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID)
         syslog(LOG_ERR, "inet_ntop: %s", strerror(errno));
         // return EXIT_FAILURE;
     }
-    std::cout << "Connecting to : " << str_ip << std::endl;
+    logger_log(cpplogger, LEVEL_DEBUG, "Connecting to : %s", str_ip);
     freeaddrinfo(new_addr);
     SocketSendThread = new std::thread(sendThread, this);
     SocketRecvThread = new std::thread(recvThread, this);
@@ -316,13 +319,13 @@ tcpClient::~tcpClient()
 uint8_t tcpClient::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
 {
     std::lock_guard<std::mutex> lock (mutex);
-    // printf("Rx Data: ");
+    // logger_log(cpplogger, LEVEL_DEBUG, "Rx Data: ");
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         externalRxPacketQueue.push_front(bytes[i]);
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return 0;
 }
 
@@ -336,12 +339,12 @@ uint8_t tcpClient::PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
         {
             break;
         }
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         bytes[i] = externalRxPacketQueue.back();
         externalRxPacketQueue.pop_back();
         i++;
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return i;
 }
 
@@ -350,10 +353,10 @@ uint8_t tcpClient::AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
     std::lock_guard<std::mutex> lock (mutex);
     for (uint16_t i = 0; i < numOfBytes; i++)
     {
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         externalTxPacketQueue.push_front(bytes[i]);
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return 0;
 }
 uint8_t tcpClient::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
@@ -369,17 +372,17 @@ uint8_t tcpClient::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
         
         bytes[i] = externalTxPacketQueue.back();
         externalTxPacketQueue.pop_back();
-        // printf("0x%02X ", bytes[i]);
+        // logger_log(cpplogger, LEVEL_DEBUG, "0x%02X ", bytes[i]);
         i++;
     }
-    // printf("\r\n");
+    // logger_log(cpplogger, LEVEL_DEBUG, "\r\n");
     return i;
 }
 
 void tcpClient::sendThread(tcpClient* inst)
 {
     uint8_t buffer[256];
-    printf("Running thread sendThread.\n");
+    logger_log(inst->cpplogger, LEVEL_DEBUG, "Running thread sendThread.\n");
     while (1)
     {
         uint16_t numOfBytesRead = inst->PopFromExternalTxBuffer(buffer, sizeof(buffer));
@@ -388,7 +391,7 @@ void tcpClient::sendThread(tcpClient* inst)
             continue;
         }
 
-        printf("Number of Bytes to send [%d].\n", numOfBytesRead);
+        logger_log(inst->cpplogger, LEVEL_DEBUG, "Number of Bytes to send [%d].\n", numOfBytesRead);
         
         if(inst->server_fd == -1)
         {
@@ -404,7 +407,7 @@ void tcpClient::sendThread(tcpClient* inst)
             }
             if(retVal == numOfBytesRead)
             {
-                printf("Successfully sent out data. %dbytes.\n", retVal);
+                logger_log(inst->cpplogger, LEVEL_DEBUG, "Successfully sent out data. %dbytes.\n", retVal);
                 break;
             }
         }
@@ -413,11 +416,11 @@ void tcpClient::sendThread(tcpClient* inst)
 void tcpClient::recvThread(tcpClient* inst)
 {
     uint8_t bufferBytes[256];
-    printf("Running thread recvThread.\n");
+    logger_log(inst->cpplogger, LEVEL_DEBUG, "Running thread recvThread.\n");
     while (1)
     {
         int ret_val = recv(inst->server_fd, bufferBytes, sizeof(bufferBytes), 0);
-        // printf("ret status %d\n",ret_val);
+        // logger_log(inst->cpplogger, LEVEL_DEBUG, "ret status %d\n",ret_val);
         if(ret_val == -1)
         {
             // perror

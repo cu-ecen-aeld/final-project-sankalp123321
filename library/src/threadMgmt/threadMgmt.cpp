@@ -32,6 +32,7 @@ void threadMgmt::messageRouter()
 {
     buffer* m_bufferInst = buffer::GetBufferInst();
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
+    CPPLogger* cpplog = CPPLogger::getLoggerInst();
     while (1)
     {
         packet classToBeCalled;
@@ -44,12 +45,12 @@ void threadMgmt::messageRouter()
         threadBase* tBase = rTbl->GetThreadInstanceFromID(classToBeCalled.datagram.m_destThreadID);
         if(tBase != nullptr)
         {
-            printf("Calling thread with ID: %x, ptr: %p \n", classToBeCalled.datagram.m_destThreadID, tBase);
+            logger_log(cpplog, LEVEL_DEBUG, "Calling thread with ID: %x, ptr: %p \n", classToBeCalled.datagram.m_destThreadID, tBase);
             tBase->RecvMessageAsync(classToBeCalled.datagram.m_payload, classToBeCalled.datagram.m_payLoadSize);
         }
         else
         {
-            printf("No thread found with ID: %x\n", classToBeCalled.datagram.m_destThreadID);
+            logger_log(cpplog, LEVEL_DEBUG, "No thread found with ID: %x\n", classToBeCalled.datagram.m_destThreadID);
         }
     }
 }

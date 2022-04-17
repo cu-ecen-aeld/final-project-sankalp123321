@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/client.dir/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/client/src/main.cpp.o  -o client -pthread ../libicl.a 

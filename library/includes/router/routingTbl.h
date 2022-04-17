@@ -15,11 +15,13 @@
 #include <vector>
 #include <map>
 #include "threadBase/threadBase.h"
+#include "logger/logger.h"
 
 class routingTbl
 {
 private:
     /* data */
+    CPPLogger* cpplogger;
     routingTbl(/* args */);
     static routingTbl *m_RTblInst;
 public: 
