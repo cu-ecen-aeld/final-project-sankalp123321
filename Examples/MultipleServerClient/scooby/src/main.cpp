@@ -3,6 +3,7 @@
 #include "router/routingTbl.h"
 #include "threadMgmt/threadMgmt.h"
 #include "threadServer/threadServer.h"
+#include "threadClient/threadClient.h"
 #include "packet/packet.h"
 #include "logger/logger.h"
 
@@ -66,9 +67,10 @@ int main(int argv, const char *argc[])
     example ex(34567);
     threadServer tServer_1(56775, argc[1], argc[2]);
 	threadServer tServer_2(56780, argc[1], argc[3]);
+    threadClient tClient (62437, argc[1], argc[4]);
 
     uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
-    packet sendDataDooby(34567, 45427);
+    packet sendDataDooby(34569, 45427);
     sendDataDooby.Serialize(dataStram, sizeof(dataStram));
     packet::SendMessage(sendDataDooby, 56775);
 

@@ -37,6 +37,7 @@ enum
     FIND_HDR = 0,
     FIND_DEST_ADDR,
     FIND_SRC_ADDR,
+    FIND_MSG_ID,
     FIND_PAYLOAD_SIZE,
     FIND_PAYLOAD,
     FIND_CKSUM,
@@ -46,7 +47,7 @@ void threadClient::packetProcessor(threadClient* inst)
 {
     uint8_t packetFinderState = FIND_HDR;
     uint16_t cntr = 0;
-    packet foundPacket (0, 0);
+    packet foundPacket (0, 0, 0);
     uint16_t payloadSize = 0, payloadSizeCntr = 0;
     uint8_t cksum = 0;
     uint8_t bufferBytes[TOTAL_PACKET_SIZE_MAX];
@@ -95,6 +96,14 @@ void threadClient::packetProcessor(threadClient* inst)
                     packetFinderState++;
                 }
                 break;
+                case FIND_MSG_ID:
+                {
+                    foundPacket.datagram.m_msgID = ((uint16_t)bufferBytes[cntr + 1] << 8) | ((uint16_t)bufferBytes[cntr]);
+                    logger_log(inst->cpplogger, LEVEL_DEBUG, "msgID: 0x%X\n",  foundPacket.datagram.m_msgID);
+                    cntr += sizeof(foundPacket.datagram.m_msgID);
+                    packetFinderState++;
+                }
+                break;
                 case FIND_PAYLOAD_SIZE:
                 {
                     foundPacket.datagram.m_payLoadSize = bufferBytes[cntr];
@@ -128,13 +137,12 @@ void threadClient::packetProcessor(threadClient* inst)
                     if(!cksum)
                     {
                         logger_log(inst->cpplogger, LEVEL_DEBUG, "Correct checksum.\n");
+                        buffInst->AddToInternalBuffer(foundPacket);
                     }
                     else
                     {
                         logger_log(inst->cpplogger, LEVEL_DEBUG, "Invalid checksum: %02X.\n", cksum);
                     }
-                    // cntr = 0;
-                    buffInst->AddToInternalBuffer(foundPacket);
                     packetFinderState = FIND_HDR;
                     break;
                 }

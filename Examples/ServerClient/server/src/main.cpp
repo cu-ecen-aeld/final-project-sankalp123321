@@ -67,9 +67,11 @@ int main(int argv, const char *argc[])
     threadServer tServer(56775, argc[1], argc[2]);
 
     uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
-    packet sendData(34567, 45427);
+    packet sendData(34567, 45427, 0x4100);
     sendData.Serialize(dataStram, sizeof(dataStram));
     packet::SendMessage(sendData, 56775);
+	// packet::SendMessage(sendData, 56775);
+	// packet::SendMessage(sendData, 56775);
     
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 

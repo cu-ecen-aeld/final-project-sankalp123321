@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/server.dir/mnt/d/CUBoulder/AESD/Project/final-project-sankalp123321/server/src/main.cpp.o  -o server -pthread ../libicl.a 

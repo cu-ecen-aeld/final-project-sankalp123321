@@ -8,6 +8,8 @@ example::example(uint32_t threadID) :
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
 
+    RegisterMethods(0x4100, CastHadnler(&example::MessageHandler, this));
+    // RegisterMethods(0x8100, &MessageHandler);
     // uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
     // Register the thread
     
@@ -18,6 +20,16 @@ example::example(uint32_t threadID) :
 
 example::~example()
 {
+}
+
+int example::MessageHandler(packet* packet)
+{
+    printf("MessageHandler called \n");
+    for (uint16_t i = 0; i < packet->datagram.m_payLoadSize; i++)
+    {
+        printf("%02X ", packet->datagram.m_payload[i]);
+    }
+    printf("\r\n");
 }
 
 void example::RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes)

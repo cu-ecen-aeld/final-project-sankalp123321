@@ -12,6 +12,7 @@
 #pragma once
 
 #include <iostream>
+#include "logger/logger.h"
 
 #define HEADER_ID (0xAAC0FFEE)
 #define HEADER_ID_INV (0xEEFFC0AA)
@@ -32,6 +33,7 @@ private:
         uint16_t m_destThreadID;
         uint16_t m_srcThreadID;
         uint8_t m_payLoadSize;
+        uint16_t m_msgID;
         uint8_t m_payload[254];
         uint8_t m_cksum;
     };
@@ -39,7 +41,7 @@ private:
 public:
     CommsPacket datagram;
     void Serialize(uint8_t* payload, uint8_t payloadQty);
-    packet(uint32_t destThrdID, uint32_t srcThrdID);
+    packet(uint32_t destThrdID, uint32_t srcThrdID, uint16_t msgID);
     static void SendMessage(packet &pkt);
     static void SendMessage(packet &pkt, uint32_t commdThread);
     void setDestID(uint16_t destID);

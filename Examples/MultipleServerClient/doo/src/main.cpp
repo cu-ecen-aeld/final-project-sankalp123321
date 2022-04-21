@@ -47,7 +47,7 @@ int main(int argv, const char *argc[])
     CPPLogger* cpplogger = CPPLogger::getLoggerInst();
     logger_setLevel(cpplogger, LEVEL_TRACE);
     logger_log(cpplogger, LEVEL_INFO, "Hello doo.\n");
-    example ex(34567);
+    example ex(34569);
     threadClient tClient(56776, argc[1], argc[2]);
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 

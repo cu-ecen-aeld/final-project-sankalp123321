@@ -23,6 +23,7 @@ add_library(icl STATIC
     ${CMAKE_SOURCE_DIR}/../../src/logger/logger.cpp
     ${CMAKE_SOURCE_DIR}/../../src/buffer/buffer.cpp
     ${CMAKE_SOURCE_DIR}/../../src/packet/packet.cpp
+    ${CMAKE_SOURCE_DIR}/../../src/ackMsg/ackMsg.cpp
     ${CMAKE_SOURCE_DIR}/../../src/socket/socket.cpp
     ${CMAKE_SOURCE_DIR}/../../src/router/routingTbl.cpp
     ${CMAKE_SOURCE_DIR}/../../src/threadMgmt/threadMgmt.cpp
@@ -40,6 +41,7 @@ target_include_directories(icl PRIVATE
     ${CMAKE_SOURCE_DIR}/../../includes
     ${CMAKE_SOURCE_DIR}/../../includes/buffer
     ${CMAKE_SOURCE_DIR}/../../includes/packet
+    ${CMAKE_SOURCE_DIR}/../../includes/ackMsg
     ${CMAKE_SOURCE_DIR}/../../includes/threadBase
     ${CMAKE_SOURCE_DIR}/../../includes/threadClient
     ${CMAKE_SOURCE_DIR}/../../includes/threadServer

@@ -306,7 +306,7 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID):
         syslog(LOG_ERR, "inet_ntop: %s", strerror(errno));
         // return EXIT_FAILURE;
     }
-    logger_log(cpplogger, LEVEL_DEBUG, "Connecting to : %s", str_ip);
+    logger_log(cpplogger, LEVEL_DEBUG, "Connecting to : %s\n", str_ip);
     freeaddrinfo(new_addr);
     SocketSendThread = new std::thread(sendThread, this);
     SocketRecvThread = new std::thread(recvThread, this);

@@ -46,13 +46,23 @@ void threadMgmt::messageRouter()
         if(tBase != nullptr)
         {
             logger_log(cpplog, LEVEL_DEBUG, "Calling thread with ID: %x, ptr: %p \n", classToBeCalled.datagram.m_destThreadID, tBase);
-            tBase->RecvMessageAsync(classToBeCalled.datagram.m_payload, classToBeCalled.datagram.m_payLoadSize);
+            // tBase->RecvMessageAsync(classToBeCalled.datagram.m_payload, classToBeCalled.datagram.m_payLoadSize);
+            tBase->GetMethodBasedOnMsgID(classToBeCalled.datagram.m_msgID)(&classToBeCalled);
         }
         else
         {
             logger_log(cpplog, LEVEL_DEBUG, "No thread found with ID: %x\n", classToBeCalled.datagram.m_destThreadID);
         }
     }
+}
+
+void threadMgmt::SendAckMessage(ackMsg &pkt)
+{
+
+}
+void threadMgmt::SendAckMessage(ackMsg &pkt, uint32_t commdThread)
+{
+
 }
 
 void threadMgmt::managerThread()

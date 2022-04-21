@@ -16,6 +16,8 @@
 #include <vector>
 
 #include "router/routingTbl.h"
+#include "logger/logger.h"
+#include "ackMsg/ackMsg.h"
 
 class threadMgmt
 {
@@ -26,7 +28,10 @@ private:
     std::thread* messageRoutingThread;
     std::vector<std::thread*> threadList;
 public:
+    CPPLogger* cpplogger;
     static void messageRouter();
+    static void SendAckMessage(ackMsg &pkt);
+    static void SendAckMessage(ackMsg &pkt, uint32_t commdThread);
     void managerThread();       
     static threadMgmt *OverWatch(); 
     ~threadMgmt();

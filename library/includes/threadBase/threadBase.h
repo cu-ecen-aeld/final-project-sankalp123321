@@ -12,12 +12,28 @@
 #pragma once
 
 #include <iostream>
+#include <functional>
+#include <map>
+#include <packet/packet.h>
+
+typedef std::function<int(packet*)> msgHandle;
 
 class threadBase
 {
 private:
     /* data */
+    // std::array<void(*)(packet*), 10> actions{};
 public:
+    std::map<uint16_t, std::function<int(packet*)>> methodHandler;
+    template<typename T>
+    msgHandle CastHadnler(int(T::*fp)(packet*), T *obj)
+    {
+        using namespace std::placeholders;
+        return std::bind(fp, obj, _1);
+    }
+    void RegisterMethods(uint16_t msgID, std::function<int(packet*)>);
+    // int (*GetMethodBasedOnMsgID (uint16_t msgID))(packet*);
+    std::function<int(packet*)> GetMethodBasedOnMsgID (uint16_t msgID);
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes){};
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);

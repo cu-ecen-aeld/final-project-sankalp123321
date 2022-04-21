@@ -16,6 +16,7 @@
 #include <deque>
 #include <mutex>
 #include <thread>
+#include "logger/logger.h"
 
 class tcpServer
 {
@@ -28,6 +29,7 @@ private:
     std::thread *SocketSendThread;
     std::thread *SocketRecvThread;
 public:
+    CPPLogger* cpplogger;
     uint8_t AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes);
@@ -50,6 +52,7 @@ private:
     std::thread *SocketSendThread;
     std::thread *SocketRecvThread;
 public:
+    CPPLogger* cpplogger;
     uint8_t AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes);
     uint8_t AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes);
