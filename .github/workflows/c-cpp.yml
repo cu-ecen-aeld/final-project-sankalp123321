@@ -15,7 +15,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Go to x86 Directory
-      run: cd /library/build/x86
+      run: cd library/build/x86/
     - name: x86 build
       run: ./build.sh
     - name: Go to ARM directory
