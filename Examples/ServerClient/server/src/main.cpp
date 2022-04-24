@@ -3,14 +3,16 @@
 #include "router/routingTbl.h"
 #include "threadMgmt/threadMgmt.h"
 #include "threadServer/threadServer.h"
+#include "threadClient/threadClient.h"
 #include "packet/packet.h"
-#include "logger/logger.h"
+#include "ackMsg/ackMsg.h"
 
 class example : public threadBase
 {
 private:
     /* data */
 public:
+    int rxMsgHandler(ackMsg *msg);
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes) override;
     virtual void PeriodicFunction();
     virtual void Notification(uint8_t notifId);
@@ -27,14 +29,20 @@ example::example(uint32_t threadID) :
     routingTbl* rTbl = routingTbl::GetRoutingTableInst();
     rTbl->registerThread(threadID, this);
 
-    for (size_t i = 0; i < 1; i++)
-    {
-        
-    }
+    RegisterMethods(0x4100, CastHadnler(&example::rxMsgHandler, this));
 }
 
 example::~example()
 {
+}
+
+int example::rxMsgHandler(ackMsg *msg)
+{
+    CPPLogger *cpplog = CPPLogger::getLoggerInst();
+    printf("rxMsgHandler called \n");
+    logger_log(cpplog, LEVEL_INFO, "Header[%04X] SrcAddr[0x%04X] DestAddr[0x%04X] isAck[%x] msgID[%x] errorcode[%d] cksum[%02X] \r\n", msg->ackBackMsg.m_header, msg->ackBackMsg.m_srcThreadID, \
+    msg->ackBackMsg.m_destThreadID, msg->ackBackMsg.m_isAck, msg->ackBackMsg.m_msgID, msg->ackBackMsg.m_errorCode, msg->ackBackMsg.m_cksum);
+    return 0;
 }
 
 void example::RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes)
@@ -69,10 +77,7 @@ int main(int argv, const char *argc[])
     uint8_t dataStram[12] = {0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34, 0x56, 0x78};
     packet sendData(34567, 45427, 0x4100);
     sendData.Serialize(dataStram, sizeof(dataStram));
-    packet::SendMessage(sendData, 56775);
-	// packet::SendMessage(sendData, 56775);
-	// packet::SendMessage(sendData, 56775);
-    
+    threadMgmt::SendMessage(sendData, 56775);
 
     threadMgmt *tManager = threadMgmt::OverWatch(); 
     tManager->managerThread();

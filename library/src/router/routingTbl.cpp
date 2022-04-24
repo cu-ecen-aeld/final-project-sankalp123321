@@ -1,6 +1,6 @@
 /**
  * @file routingTbl.cpp
- * @author your name (you@domain.com)
+ * @author Sankalp Agrawal (saag2511@colorado.edu)
  * @brief 
  * @version 0.1
  * @date 2022-03-25
@@ -31,7 +31,10 @@ routingTbl::routingTbl():
 
 routingTbl::~routingTbl()
 {
-    delete m_RTblInst;
+    if(m_RTblInst != nullptr)
+    {
+        delete m_RTblInst;
+    }
 }
 
 std::map<uint32_t, threadBase*> routingTbl::routerTableInst()

@@ -22,14 +22,23 @@ example::~example()
 {
 }
 
-int example::MessageHandler(packet* packet)
+int example::MessageHandler(packet* pack)
 {
     printf("MessageHandler called \n");
-    for (uint16_t i = 0; i < packet->datagram.m_payLoadSize; i++)
+    for (uint16_t i = 0; i < pack->datagram.m_payLoadSize; i++)
     {
-        printf("%02X ", packet->datagram.m_payload[i]);
+        printf("%02X ", pack->datagram.m_payload[i]);
     }
     printf("\r\n");
+
+    
+    ackMsg aMsg;
+    aMsg.formAckBackMessage(pack);
+    aMsg.setAckStatus(1);
+    aMsg.setErrorCode(9);
+    aMsg.calCulateChecksum();
+
+    threadMgmt::SendAckMessage(aMsg, 56776);
 }
 
 void example::RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes)

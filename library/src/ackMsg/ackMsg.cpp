@@ -1,6 +1,6 @@
 /**
  * @file ackMsg.cpp
- * @author your name (you@domain.com)
+ * @author Sankalp Agrawal (saag2511@colorado.edu)
  * @brief 
  * @version 0.1
  * @date 2022-04-17

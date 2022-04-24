@@ -27,11 +27,46 @@ private:
 public: 
     std::map<uint32_t, threadBase*> table;
     std::map<uint32_t, threadBase*> routerTableInst();
+    /**
+     * @brief Construct a new routing Tbl object
+     * 
+     */
     routingTbl(routingTbl&) = delete;
+
+    /**
+     * @brief 
+     * 
+     */
     void operator=(const routingTbl&) = delete;
+
+    /**
+     * @brief Get the Routing Table Inst object
+     * 
+     * @return routingTbl* 
+     */
     static routingTbl* GetRoutingTableInst();
+
+    /**
+     * @brief 
+     * 
+     */
     void printTable();
+
+    /**
+     * @brief 
+     * 
+     * @param threadID 
+     * @param thread 
+     */
     void registerThread(uint32_t threadID, threadBase* thread);
+
+    /**
+     * @brief Get the Thread Instance From I D object
+     * 
+     * @param threadID 
+     * @return threadBase* 
+     */
     threadBase* GetThreadInstanceFromID(uint32_t threadID);
+    
     ~routingTbl();
 };

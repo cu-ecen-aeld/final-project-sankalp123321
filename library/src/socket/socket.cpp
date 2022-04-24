@@ -1,6 +1,6 @@
 /**
  * @file socket.cpp
- * @author your name (you@domain.com)
+ * @author Sankalp Agrawal (saag2511@colorado.edu)
  * @brief 
  * @version 0.1
  * @date 2022-03-25
@@ -40,7 +40,7 @@ void *get_in_addr(struct sockaddr *sa) {
 }
 
 tcpServer::tcpServer(std::string ipAddr, std::string socketID):
-    server_fd(-1), clientFd(-1), cpplogger(nullptr)
+    server_fd(-1), cpplogger(nullptr), clientFd(-1)
 {
     cpplogger = CPPLogger::getLoggerInst();
     openlog("icl-lib", LOG_CONS | LOG_PERROR | LOG_PID, LOG_USER);
@@ -209,7 +209,7 @@ void tcpServer::sendThread(tcpServer* inst)
         }
 
         int retVal = 0;
-        while(retVal = send(inst->clientFd, buffer, numOfBytesRead, 0))
+        while((retVal = send(inst->clientFd, buffer, numOfBytesRead, 0)))
         {
             if(retVal == -1)
             {
@@ -252,7 +252,7 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID):
 {
     cpplogger = CPPLogger::getLoggerInst();
     struct addrinfo s_addr, *new_addr = nullptr, *ptr;
-    struct sockaddr_storage client_addr;
+    // struct sockaddr_storage client_addr;
 
     memset(&s_addr, 0, sizeof(s_addr));
 
@@ -296,8 +296,8 @@ tcpClient::tcpClient(std::string ipAddr, std::string socketID):
         exit(EXIT_FAILURE);
     }
 
-    socklen_t add_size = sizeof(client_addr);
-    struct sockaddr *sck_addr = (struct sockaddr *)&client_addr;
+    // socklen_t add_size = sizeof(client_addr);
+    // struct sockaddr *sck_addr = (struct sockaddr *)&client_addr;
     
     char str_ip[IP_MAX_LEN];
     const char *returnVal = inet_ntop(ptr->ai_family, get_in_addr((struct sockaddr *)&ptr->ai_addr), str_ip, IP_MAX_LEN);
@@ -399,7 +399,7 @@ void tcpClient::sendThread(tcpClient* inst)
         }
 
         int retVal = 0;
-        while(retVal = send(inst->server_fd, buffer, numOfBytesRead, 0))
+        while((retVal = send(inst->server_fd, buffer, numOfBytesRead, 0)))
         {
             if(retVal == -1)
             {

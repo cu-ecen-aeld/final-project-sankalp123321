@@ -1,6 +1,6 @@
 /**
  * @file threadClient.h
- * @author your name (you@domain.com)
+ * @author Sankalp Agrawal (saag2511@colorado.edu)
  * @brief 
  * @version 0.1
  * @date 2022-03-26
@@ -18,7 +18,11 @@
 class threadClient : public threadBase, tcpClient
 {
 private:
-    /* data */
+    /**
+     * @brief 
+     * 
+     * @param inst 
+     */
     static void packetProcessor(threadClient* inst);
     uint32_t m_ThreadID;
     std::thread* packetProcessorThread;
@@ -26,11 +30,56 @@ private:
 protected:
     
 public:
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param numOfBytes 
+     */
     virtual void RecvMessageAsync(uint8_t *buffer, uint8_t numOfBytes);
+
+    /**
+     * @brief 
+     * 
+     */
     virtual void PeriodicFunction();
+
+    /**
+     * @brief 
+     * 
+     * @param notifId 
+     */
     virtual void Notification(uint8_t notifId);
+
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @param numOfBytes 
+     */
     virtual void AddToTxBuffer(uint8_t* data, uint16_t numOfBytes);
+
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @param numOfBytes 
+     * @return uint16_t 
+     */
     virtual uint16_t PopRxBuffer(uint8_t* data, uint16_t numOfBytes);
+
+    /**
+     * @brief Construct a new thread Client object
+     * 
+     * @param threadID 
+     * @param ipAddr 
+     * @param socketID 
+     */
     threadClient(uint32_t threadID, std::string ipAddr, std::string socketID);
+
+    /**
+     * @brief Destroy the thread Client object
+     * 
+     */
     virtual ~threadClient();
 };

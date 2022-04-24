@@ -1,6 +1,6 @@
 /**
  * @file buffer.cpp
- * @author your name (you@domain.com)
+ * @author Sankalp Agrawal (saag2511@colorado.edu)
  * @brief 
  * @version 0.1
  * @date 2022-03-25
@@ -30,47 +30,30 @@ buffer::buffer(/* args */)
 
 buffer::~buffer()
 {
+    if(m_bufferInst != nullptr)
+    {
+        delete m_bufferInst;
+    }
 }
 
-uint8_t buffer::AddToExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+uint8_t buffer::AddToInternalBuffer(ackMsg pack)
 {
-    std::lock_guard<std::mutex> lock (mutex);
-    for (uint16_t i = 0; i < numOfBytes; i++)
-    {
-        printf("0x%02X ", bytes[i]);
-        externalRxPacketQueue.push_front(bytes[i]);
-    }
-    printf("\r\n");
+    std::lock_guard<std::mutex> lock (ackMutex);
+    internalAckMsgQueue.push_front(pack);
     return 0;
 }
-
-uint8_t buffer::PopFromExternalRxBuffer(uint8_t* bytes, uint16_t numOfBytes)
+uint8_t buffer::PopFromInternalBuffer(ackMsg* rcvdAck)
 {
-    int i = 0;
-    std::lock_guard<std::mutex> lock (mutex);
-    while (!externalRxPacketQueue.empty())
+    std::lock_guard<std::mutex> lock (ackMutex);
+    if(internalAckMsgQueue.empty())
     {
-        if (i == numOfBytes)
-        {
-            break;
-        }
-        // printf("0x%02X ", bytes[i]);
-        bytes[i] = externalRxPacketQueue.back();
-        externalRxPacketQueue.pop_back();
-        i++;
+        return 0;
     }
-    // printf("\r\n");
-    return i;
+    *rcvdAck = internalAckMsgQueue.back();
+    internalAckMsgQueue.pop_back();
+    return 1;
 }
 
-uint8_t buffer::AddToExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
-{
-
-}
-uint8_t buffer::PopFromExternalTxBuffer(uint8_t* bytes, uint16_t numOfBytes)
-{
-
-}
 uint8_t buffer::AddToInternalBuffer(packet pack)
 {
     std::lock_guard<std::mutex> lock (mutex);

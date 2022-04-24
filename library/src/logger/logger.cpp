@@ -13,7 +13,11 @@ CPPLogger::CPPLogger()
 
 CPPLogger::~CPPLogger()
 {
-
+    if (cpplogger != nullptr)
+    {
+        delete cpplogger;
+    }
+    
 }
 
 // Get current date/time, format is YYYY-MM-DD.HH:mm:ss
