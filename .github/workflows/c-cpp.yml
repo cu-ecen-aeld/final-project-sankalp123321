@@ -13,8 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: configure
+    - name: Go to x86 Directory
     - run: cd library/build/x86/
+    - name: X86 build
     - run: ./build.sh
+    - name: Go to ARM directory
     - run: cd ../library/build/arm/
+    - name: ARM Build
     - run: ./build.sh
